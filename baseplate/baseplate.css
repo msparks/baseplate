@@ -1,0 +1,418 @@
+/* Reset. */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset,
+p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Layout. */
+html {
+  background-color: #a4acb4;
+  font-size: 1.0em;
+}
+
+body {
+  background-color: #a4acb4;
+  color: #333;
+  font-family: Tinos, Garamond, serif;
+  font-variant-ligatures: common-ligatures;
+  -moz-font-feature-settings: "liga=1, swsh=0, cswh=0";
+  font-size: 16px;
+}
+
+
+/* Headers and subtitles. */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-style: normal;
+  font-family: Tinos, Garamond, serif;
+  color: #111;
+  clear: left;
+}
+
+h1 {
+  font-size: 2.25em;
+  line-height: 1.333em;
+  margin-top: 0.22em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+  line-height: 1.0em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+
+  font-style: italic;
+}
+
+h3 {
+  font-size: 1.125em;
+  line-height: 1.333em;
+  margin-top: 1.333em;
+  margin-bottom: 0.5em;
+}
+
+h4 {
+  font-size: 1.0em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h5 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 a:link,
+h2 a:link {
+  color: inherit;
+}
+
+h1 a:hover,
+h2 a:hover {
+  color: #555;
+}
+
+/* Short description for the title. */
+.subtitle {
+  color: #999;
+  font-size: 13px;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+.subtitle, .meta {
+  font-size: 0.875em;
+  line-height: 1.714em;
+}
+
+h1 + div.subtitle {
+  margin-top: -1.6em;
+  position: relative;
+  text-transform: uppercase;
+}
+
+h1 + h2 {
+  margin-top: -0.3em;
+}
+
+
+/* Meta text. */
+.meta {
+  font-family: Molengo, "Helvetica Neue", Helvetica, "Trebuchet MS", sans-serif;
+  color: #999;
+}
+.meta a {
+  color: #999;
+  text-decoration: none;
+  border: 0;
+}
+.meta a:hover {
+  color: #333;
+}
+
+
+/* Header/breadcrumbs above page. */
+.header {
+  margin: 0 auto;
+  width: 720px;
+  padding-bottom: 2px;
+  color: #f0f0f0;
+  text-shadow: #333740 0 1px 1px;
+}
+.header a:link,
+.header a:visited {
+  color: #f0f0f0;
+}
+.header a:hover {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header .path {
+  width: 60%;
+  float: left;
+}
+
+.header .nav {
+  width: 30%;
+  float: right;
+  text-align: right;
+}
+
+.header .meta {
+  color: inherit;
+}
+
+
+/* Page footer. */
+div.footer {
+  width: 100%;
+  border-top: thin solid #c9c8c7;
+  margin-top: 15px;
+}
+
+
+/* The visible paper-like page. */
+#wrapper, .page {
+  background-color: #fff;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  width: 608px;
+  border: 1px solid #758392;
+  border-radius: 3px;
+  padding: 40px 65px 25px 65px;
+  position: relative;
+  top: 23px;
+
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+
+
+/* Content text. */
+p {
+  color: #333;
+  line-height: 22px;
+  margin: 15px 0 15px 0;
+  text-align: justify;
+}
+
+small, #notes > li > p {
+  font-size: 0.813em;
+  line-height: 1.846em;
+}
+
+
+/* Lists. */
+ul, ol {
+  padding-left: 1.8em;
+}
+
+li {
+  line-height: 1.6em;
+}
+
+
+/* Definition lists. */
+dt, dd {
+  font-size: 1.0em;
+  line-height: 1.5em;
+}
+dd {
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+
+/* Horizontal rules. */
+hr {
+  border: none;
+  border-top: thin solid #c9c8c7;
+  height: 1.6em;
+  margin-top: 1.6em;
+}
+
+hr + h2 {
+  margin-top: 0.5em;
+}
+
+
+/* Links. */
+a {
+  color: #004491;
+  text-decoration: none;
+}
+a:hover {
+  color: #555;
+}
+
+
+/* Abbreviations and acronyms. */
+abbr {
+  letter-spacing: 0.1em;
+}
+
+abbr[title], acronym[title] {
+  border-bottom: 1px dotted #d3dfee;
+}
+
+
+/* Tables. */
+table {
+  border-top: double #999897;
+  border-bottom: thin solid #999897;
+  border-spacing: 0;
+  margin: 0 auto;
+}
+
+tr {
+  line-height: 1.3em;
+}
+
+th {
+  border-bottom: thin solid #999897;
+}
+
+td {
+  padding: 0 0.5em;
+}
+
+table.plain {
+  border-top: none;
+  border-bottom: none;
+}
+
+table.plain th {
+  border-bottom: none;
+}
+
+
+/* Math. */
+math[display=block] {
+  font-size: 1.0em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  overflow: auto;
+}
+
+math {
+  white-space: nowrap;
+}
+
+merror {
+  display: inline;
+}
+
+.eq-number {
+  float: right;
+}
+
+
+/* Bordered environments. */
+blockquote,
+code,
+kbd {
+  background: #e9e8e7;
+  border: 1px solid #e0ddda;
+  -moz-border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+}
+
+
+/* Monospace environments. */
+pre, blockquote {
+  font-size: 0.875em;
+  line-height: 1.714em;
+  padding: .857em 1em;
+  margin-bottom: 1.714em;
+}
+
+code,
+pre,
+kbd {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 12px;
+}
+
+pre {
+  background-color: #202224;
+  color: #f8f8f8;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+  -moz-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+}
+
+pre > code {
+  color: #f8f8f8;
+  display: block;
+  border: none;
+  background-color: inherit;
+}
+
+code,
+kbd {
+  padding: 0 0.3ex;
+}
+
+
+/* Blockquote. */
+blockquote {
+  border-left: thick solid #e0ddda;
+  padding: 0 1em;
+}
+
+
+/* Footnotes. */
+a.noteref {
+  font-size: 0.75em;
+  line-height: 1.0em;
+  vertical-align: super;
+}
+
+sup {
+  line-height: 0px;
+}
+
+a.noteref, sup a:link, sup a:visited {
+  padding: 3px;
+}
+
+#notes > li > p {
+  display: inline;
+}
+
+
+/* Arrangement. */
+div.left {
+  float: left;
+}
+
+/* Images. */
+p img {
+  border: thin solid #d9d8d7;
+  padding: 3px;
+}
+
+div.image {
+  display: inline-block;
+}
+
+div.image.left {
+  margin: 0 5px 5px 0;
+}
+
+div.image img {
+  border: thin solid #d9d8d7;
+  padding: 3px;
+}
+
+div.noborder img {
+  border: 0;
+  padding: 0;
+}
+
+div.image p {
+  text-align: center;
+  margin: 1em 0 0 0;
+  font-size: 0.938em;
+  line-height: 1.6em;
+  font-style: italic;
+}
+
+div.image p strong {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: normal;
+}
