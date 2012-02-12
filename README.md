@@ -16,6 +16,7 @@ Features:
 * Updating the output is simple: just edit the markdown source files. Whenever
   you reload the Baseplate index page, AJAX fetches the markdown file and
   re-renders the output using showdown.js.
+* No special server is required. Publish documents on any website.
 * `Last-Modified` headers are parsed and included in the page footer to
   indicate when the content was last changed.
 * Page titles are automatically updated with the content of the first H1 header.
