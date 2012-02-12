@@ -77,3 +77,49 @@ cloud. All Dropbox accounts include a
 to instantly publish on the web. This feature works great with Baseplate; just
 install Baseplate in your Public directory and copy the public link to the
 `index.html` file in your Baseplate installation.
+
+## FAQ
+
+### Can I organize my files into subdirectories?
+
+Yes. In fact, this is an excellent way to organize many collections of
+documents. For example, you may have a directory for notes and a directory for
+projects containing many subdirectories for all of your projects. Your file
+tree might look something like this:
+
+    .
+    |-- notes
+    |   |-- index.md
+    |   +-- programming.md
+    +-- projects
+        |-- foobarbazzle
+        |   |-- index.md
+        |   +-- bazzle.png
+        +-- quuxinator
+            |-- index.md
+            +-- settings.md
+
+If a directory is specified in the URL hash, the *index.md* file within that
+directory is loaded. To access to *quuxinator* project in the example above,
+you would use the URL hash `#!/projects/quuxinator/`. Note that the last
+forward slash is required to indicate that it is a directory. To access the
+*settings* document in the *quuxinator* project, you would just add *settings*
+to the URL hash: `#!/projects/quuxinator/settings`.
+
+### How do I use images with Baseplate?
+
+Image files are referenced relative to where the Baseplate index.html file is
+installed. To include an image in a document, copy the image file to the
+directory within your Baseplate installation, such as into the directory
+containing the document that references the image, and reference it using
+regular markdown syntax. For example, to include the *bazzle.png* image in the
+subdirectories FAQ example above, you would use:
+
+    ![Alt text](projects/foobarbazzle/bazzle.png)
+
+Note that there is no forward slash before *projects*; this would create an
+absolute path that would be invalid if your Baseplate installation is within a
+subdirectory of the document root on the webserver. Also, the full relative
+path to images (and other files) must be specified, even within documents in
+*projects/foobarbazzle/*, because web browsers construct their URLs relative to
+the Baseplate root directory.
