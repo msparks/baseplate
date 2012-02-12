@@ -27,18 +27,34 @@ Non-features:
 
 ## Installation and usage
 
-Copy the files from the
-[Baseplate repository](https://github.com/msparks/baseplate) into a
-web-accessible directory, then add new markdown files (with the extension
-*.md*) in that same directory.
+Three simple commands get you a full Baseplate installation.
 
-To see these pages using Baseplate, add `#!/pagename` to the URL, where
-`pagename` is the name of the corresponding file without the *.md*
+    % git clone git://github.com/msparks/baseplate.git
+    % cd baseplate
+    % python -m SimpleHTTPServer 8001
+
+The last command starts a Python webserver that serves files from the
+*baseplate* directory at [http://localhost:8001](http://localhost:8001). If
+everything worked, you should see this document at that URL.
+
+Adding new documents is easy. Just create new markdown files (with the
+extension *.md*) in the *baseplate* directory (the same one that contains
+*index.html*). To see these documents using Baseplate, add `#!/pagename` to the
+URL, where `pagename` is the name of the corresponding file without the *.md*
 extension. For example, the content for this page is in `README.md`, so the
-rendered page can be accessed at [#!/README](#!/README).
+rendered page can be accessed at
+[http://localhost:8001/#!/README](http://localhost:8001/#!/README).
 
 If no page is specified in the URL, Baseplate will attempt to load `index.md`
 first. If that fails, it will try to load `README.md` (this file).
+
+### Hosting Baseplate elsewhere
+
+The quick-start example above shows how host Baseplate-rendered documents on
+your own computer, but you can easily use Baseplate anywhere you have
+public webspace. Just copy the files created by the `git clone` command to a
+web-accessible directory on your webhost of choice. After that, you need only
+add and update your markdown files.
 
 ### Using Baseplate on Dropbox
 
