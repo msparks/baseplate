@@ -1,5 +1,9 @@
 # Baseplate
 
+<div class="meta subtitle">
+Beautiful documents, no pain
+</div>
+
 Baseplate is a dead-simple way to turn
 [markdown](http://daringfireball.net/projects/markdown/) files into
 beautifully-styled webpages without any external programs. Just drop files in a
