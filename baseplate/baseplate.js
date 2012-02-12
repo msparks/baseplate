@@ -4,6 +4,12 @@ function init() {
   var title;
   if (hash.substr(0, 3) == '#!/') {
     filename = hash.substr(3);
+
+    // Hashes like '#!/test/' are treated as directory accesses.
+    if (filename.substr(-1) == '/') {
+      filename += 'index';
+    }
+
     title = filename;
     if (filename) {
       filename += '.md';
