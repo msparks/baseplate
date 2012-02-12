@@ -25,6 +25,14 @@ Non-features:
 * All markdown source files must be web-accessible. Otherwise, Baseplate would
   not be able to read them.
 
+## Demo
+
+See this document rendered by Baseplate.  
+[http://quadpoint.org/projects/baseplate/#!/README](http://quadpoint.org/projects/baseplate/#!/README)
+
+Baseplate uses `README.md` as the source.  
+[http://quadpoint.org/projects/baseplate/README.md](http://quadpoint.org/projects/baseplate/README.md)
+
 ## Installation and usage
 
 Three simple commands get you a full Baseplate installation.
