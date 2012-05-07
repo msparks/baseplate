@@ -63,9 +63,9 @@ first. If that fails, it will try to load `README.md` (this file).
 
 ### Hosting Baseplate elsewhere
 
-The quick-start example above shows how host Baseplate-rendered documents on
-your own computer, but you can easily use Baseplate anywhere you have
-public webspace. Just copy the files created by the `git clone` command to a
+The quick-start example above shows how to host Baseplate-rendered documents on
+your own computer, but you can easily use Baseplate anywhere you have public
+webspace. Just copy the files created by the `git clone` command to a
 web-accessible directory on your webhost of choice. After that, you need only
 add and update your markdown files.
 
