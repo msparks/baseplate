@@ -255,6 +255,7 @@ tr {
 
 th {
   border-bottom: thin solid #999897;
+  padding: 0 0.5em;
 }
 
 td {
