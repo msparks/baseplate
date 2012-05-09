@@ -6,7 +6,7 @@ var baseplate = {};
  */
 baseplate.log = function(message) {
   console.log('[baseplate] ' + message);
-}
+};
 
 /**
  * Represents a text document.
