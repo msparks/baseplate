@@ -32,6 +32,9 @@ baseplate.Document = function(name) {
 
   /** @type {Array.<Function>} */
   this.success_callbacks_ = [];
+
+  /** @type {Array.<Function>} */
+  this.error_callbacks_ = [];
 };
 
 /**
@@ -87,6 +90,15 @@ baseplate.Document.prototype.lastModified = function() {
  */
 baseplate.Document.prototype.addSuccessCallback = function(cb) {
   this.success_callbacks_.push(cb);
+};
+
+/**
+ * Adds a callback to be called a when document fails to load.
+ *
+ * @param {function()} cb Function to be called when load() fails.
+ */
+baseplate.Document.prototype.addErrorCallback = function(cb) {
+  this.error_callbacks_.push(cb);
 };
 
 /**
@@ -149,6 +161,13 @@ baseplate.Document.prototype.loadSuccess_ = function(
 baseplate.Document.prototype.loadError_ = function(
     self, jq_xhr, text_status, error_thrown) {
   baseplate.log('Error loading ' + self.url() + ': ' + error_thrown);
+
+  // Run all callbacks.
+  for (var i in self.error_callbacks_) {
+    // TODO(ms): Some of the error context should be passed to the error
+    //   callbacks.
+    self.error_callbacks_[i]();
+  }
 };
 
 function init() {
