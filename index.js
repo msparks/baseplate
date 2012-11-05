@@ -1,32 +1,32 @@
 function init() {
   var hash = window.location.hash;
-  var doc_name;
+  var docName;
   var title;
   if (hash.substr(0, 3) == '#!/') {
-    doc_name = hash.substr(3);
+    docName = hash.substr(3);
 
     // Hashes like '#!/test/' are treated as directory accesses.
-    if (doc_name.substr(-1) == '/') {
-      doc_name += 'index';
+    if (docName.substr(-1) == '/') {
+      docName += 'index';
     }
 
-    title = doc_name;
+    title = docName;
   }
 
-  if (doc_name) {
+  if (docName) {
     // Change title.
     title = title.replace(/_/g, ' ');
     $('title').html(title);
 
     // Load file.
-    loadFile(doc_name);
+    loadFile(docName);
   } else {
     loadFile('index');
   }
 }
 
-function loadFile(doc_name) {
-  var doc = new baseplate.Document(doc_name);
+function loadFile(docName) {
+  var doc = new baseplate.Document(docName);
   doc.addSuccessCallback(function() { loadFileSuccess(doc); });
   doc.addErrorCallback(function(xhr) { loadFileError(doc, xhr); });
   doc.load();
@@ -40,9 +40,9 @@ function loadFileSuccess(doc) {
   $('#content').html(html);
 
   // Update title if an h1 header exists.
-  var header_title = $('h1').html();
-  if (header_title) {
-    $('title').html(header_title);
+  var headerTitle = $('h1').html();
+  if (headerTitle) {
+    $('title').html(headerTitle);
   }
 
   // Show date modified in footer.
