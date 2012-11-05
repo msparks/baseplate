@@ -1,5 +1,6 @@
 var baseplate = {};
 
+
 /**
  * Logs a message to the JavaScript console.
  * @param {string} message Message to log.
@@ -7,6 +8,8 @@ var baseplate = {};
 baseplate.log = function(message) {
   console.log('[baseplate] ' + message);
 };
+
+
 
 /**
  * Represents a text document.
@@ -19,13 +22,13 @@ baseplate.log = function(message) {
  */
 baseplate.Document = function(name) {
   /** @type {string} */
-  this.name_ = "";
-  if (typeof name == "string") {
+  this.name_ = '';
+  if (typeof name == 'string') {
     this.name_ = name;
   }
 
   /** @type {string} */
-  this.content_ = "";
+  this.content_ = '';
 
   /** @type {number} */
   this.last_modified_ = -1;
@@ -37,14 +40,16 @@ baseplate.Document = function(name) {
   this.error_callbacks_ = [];
 };
 
+
 /**
  * Returns the name of the document.
  *
- * @returns {string} The name of the document.
+ * @return {string} The name of the document.
  */
 baseplate.Document.prototype.name = function() {
   return this.name_;
 };
+
 
 /**
  * Returns the URL of the document.
@@ -52,36 +57,39 @@ baseplate.Document.prototype.name = function() {
  * The URL is constructed from the document name. If the name is not set, this
  * returns an empty string.
  *
- * @returns {string} The URL to the document.
+ * @return {string} The URL to the document.
  */
 baseplate.Document.prototype.url = function() {
-  if (this.name_ == "") {
-    return "";
+  if (this.name_ == '') {
+    return '';
   }
   return this.name_ + '.md';
 };
+
 
 /**
  * Sets and returns the content of the document.
  *
  * @param {string=} opt_content New content.
- * @returns {string} The content of the document.
+ * @return {string} The content of the document.
  */
 baseplate.Document.prototype.content = function(opt_content) {
-  if (typeof opt_content == "string") {
+  if (typeof opt_content == 'string') {
     this.content_ = opt_content;
   }
   return this.content_;
 };
 
+
 /**
  * Returns the last modified date of the document.
  *
- * @returns {number} Unix epoch (seconds) or -1 if unavailable.
+ * @return {number} Unix epoch (seconds) or -1 if unavailable.
  */
 baseplate.Document.prototype.lastModified = function() {
   return this.last_modified_;
 };
+
 
 /**
  * Adds a callback to be called when a document is loaded successfully.
@@ -92,6 +100,7 @@ baseplate.Document.prototype.addSuccessCallback = function(cb) {
   this.success_callbacks_.push(cb);
 };
 
+
 /**
  * Adds a callback to be called a when document fails to load.
  *
@@ -101,6 +110,7 @@ baseplate.Document.prototype.addErrorCallback = function(cb) {
   this.error_callbacks_.push(cb);
 };
 
+
 /**
  * Loads the document.
  *
@@ -108,7 +118,7 @@ baseplate.Document.prototype.addErrorCallback = function(cb) {
  * this method. This method does nothing if a name is not set.
  */
 baseplate.Document.prototype.load = function() {
-  if (this.name_ == "") {
+  if (this.name_ == '') {
     return;
   }
 
@@ -129,6 +139,7 @@ baseplate.Document.prototype.load = function() {
     error: errorWithUrl
   });
 };
+
 
 /**
  * Continuation for load() on success.
@@ -153,6 +164,7 @@ baseplate.Document.prototype.loadSuccess_ = function(
     self.success_callbacks_[i]();
   }
 };
+
 
 /**
  * Continuation for load() on error.
