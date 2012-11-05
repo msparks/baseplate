@@ -1,58 +1,42 @@
 function init() {
   var hash = window.location.hash;
-  var filename;
+  var doc_name;
   var title;
   if (hash.substr(0, 3) == '#!/') {
-    filename = hash.substr(3);
+    doc_name = hash.substr(3);
 
     // Hashes like '#!/test/' are treated as directory accesses.
-    if (filename.substr(-1) == '/') {
-      filename += 'index';
+    if (doc_name.substr(-1) == '/') {
+      doc_name += 'index';
     }
 
-    title = filename;
-    if (filename) {
-      filename += '.md';
-    }
+    title = doc_name;
   }
 
-  if (filename) {
+  if (doc_name) {
     // Change title.
     title = title.replace(/_/g, ' ');
     $('title').html(title);
 
     // Load file.
-    loadFile(filename);
+    loadFile(doc_name);
   } else {
-    loadFile('index.md');
+    loadFile('index');
   }
 }
 
-function showError(error_msg) {
-  $('#content').html(error_msg);
+function loadFile(doc_name) {
+  var doc = new baseplate.Document(doc_name);
+  doc.addSuccessCallback(function() { loadFileSuccess(doc); });
+  doc.addErrorCallback(function(xhr) { loadFileError(doc, xhr); });
+  doc.load();
 }
 
-function loadFile(filename) {
-  function successWithFilename(data, text_status, jq_xhr) {
-    return loadFileSuccess(filename, data, text_status, jq_xhr);
-  }
-
-  function errorWithFilename(jq_xhr, text_status, error_thrown) {
-    return loadFileError(filename, jq_xhr, text_status, error_thrown);
-  }
-
-  $.ajax({
-    url: filename,
-    success: successWithFilename,
-    error: errorWithFilename
-  });
-}
-
-function loadFileSuccess(filename, data, text_status, jq_xhr) {
+function loadFileSuccess(doc) {
   var converter = new Showdown.converter();
 
   // HTMLize content.
-  var html = converter.makeHtml(data);
+  var html = converter.makeHtml(doc.content());
   $('#content').html(html);
 
   // Update title if an h1 header exists.
@@ -62,22 +46,26 @@ function loadFileSuccess(filename, data, text_status, jq_xhr) {
   }
 
   // Show date modified in footer.
-  var last_modified = jq_xhr.getResponseHeader('Last-Modified');
-  if (last_modified) {
-    var modified_date = new Date();
-    modified_date.setTime(Date.parse(last_modified));
-    $('.footer .meta').html('Modified ' + modified_date.toDateString());
+  var lastModified = doc.lastModified();
+  if (lastModified > 0) {
+    var modifiedDate = new Date();
+    modifiedDate.setTime(lastModified * 1000);  // ms since epoch.
+    $('.footer .meta').html('Modified ' + modifiedDate.toDateString());
   }
 }
 
-function loadFileError(filename, jq_xhr, text_status, error_thrown) {
-  if (filename == 'index.md') {
+function loadFileError(doc, xhr) {
+  if (doc.name() == 'index') {
     // Index file is missing. Try to load the README instead.
-    loadFile('README.md');
+    loadFile('README');
     return;
   }
 
-  showError(text_status + ': ' + error_thrown);
+  showError('Error ' + xhr.status + ': ' + xhr.statusText);
+}
+
+function showError(error_msg) {
+  $('#content').html(error_msg);
 }
 
 // Run init when the location #hash changes.
