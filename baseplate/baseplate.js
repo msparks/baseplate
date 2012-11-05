@@ -164,8 +164,6 @@ baseplate.Document.prototype.loadError_ = function(
 
   // Run all callbacks.
   for (var i in self.error_callbacks_) {
-    // TODO(ms): Some of the error context should be passed to the error
-    //   callbacks.
-    self.error_callbacks_[i]();
+    self.error_callbacks_[i](jq_xhr);
   }
 };
