@@ -15,20 +15,8 @@
 <body>
 <div class="page">
   <div id="content"></div>
-
   <div class="footer"><span class="meta"></span></div>
 </div>
-<script type="text/javascript">
-  function success(doc) {
-    console.log(doc.name());
-    console.log(doc.lastModified());
-  }
-
-  $(function() {
-    var doc = new baseplate.Document('README');
-    doc.addSuccessCallback(function() { success(doc); })
-    doc.load();
-  });
-</script>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
