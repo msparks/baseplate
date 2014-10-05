@@ -33,10 +33,10 @@ Non-features:
 ## Demo
 
 See this document rendered by Baseplate.  
-[http://quadpoint.org/projects/baseplate/#!/README](http://quadpoint.org/projects/baseplate/#!/README)
+[http://dev.quadpoint.org/baseplate/#!/README](http://dev.quadpoint.org/baseplate/#!/README)
 
 Baseplate uses `README.md` as the source.  
-[http://quadpoint.org/projects/baseplate/README.md](http://quadpoint.org/projects/baseplate/README.md)
+[http://dev.quadpoint.org/baseplate/README.md](http://dev.quadpoint.org/baseplate/README.md)
 
 ## Installation and usage
 
